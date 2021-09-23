@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/stores';
 
 import Dashboard from './pages/Dashboard/Dashboard';
+import CharacterDetails from './components/CharacterDetails/CharacterDetails';
 
 import preloadedState from './mock/preloadedState.mock';
 
@@ -17,6 +18,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Dashboard} />
+          <Route path="/details/:character" component={CharacterDetails} />
           <Redirect path="dashboard" to="/" />
         </Switch>
       </BrowserRouter>
