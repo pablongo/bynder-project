@@ -16,14 +16,12 @@ export default function CharacterDetails() {
   const [shownCharacter, setShownCharacter] = useState({});
 
   useEffect(() => {
-    if (characters) {
-      const foundCharacter = characters
-        .find((characterStored) => (characterStored.name === character));
+    const foundCharacter = characters
+      .find((characterStored) => (characterStored.name === character));
 
-      const url = foundCharacter.homeworld;
-      dispatch(loadPlanet(foundCharacter.homeworld));
-      setShownCharacter(foundCharacter);
-    }
+    const url = foundCharacter.homeworld;
+    dispatch(loadPlanet(foundCharacter.homeworld));
+    setShownCharacter(foundCharacter);
   }, []);
 
   return (
@@ -40,7 +38,13 @@ export default function CharacterDetails() {
         </section>
         <section>
           <h2>{planet.name}</h2>
-          {}
+          <ul>
+            {planet.planetResidents?.map((resident) => (
+              <li key={resident.name}>
+                <h3>{resident.name}</h3>
+              </li>
+            ))}
+          </ul>
         </section>
       </article>
     </>
