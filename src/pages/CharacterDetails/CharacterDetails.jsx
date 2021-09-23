@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import { loadPlanet } from '../../redux/actions/actionCreators';
 
@@ -19,7 +19,6 @@ export default function CharacterDetails() {
     const foundCharacter = characters
       .find((characterStored) => (characterStored.name === character));
 
-    const url = foundCharacter.homeworld;
     dispatch(loadPlanet(foundCharacter.homeworld));
     setShownCharacter(foundCharacter);
   }, []);
@@ -47,6 +46,11 @@ export default function CharacterDetails() {
           </ul>
         </section>
       </article>
+      <Link to="/">
+        <button type="button">
+          Go back
+        </button>
+      </Link>
     </>
   );
 }

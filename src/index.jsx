@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/stores';
 
 import Dashboard from './pages/Dashboard/Dashboard';
-import CharacterDetails from './components/CharacterDetails/CharacterDetails';
+import CharacterDetails from './pages/CharacterDetails/CharacterDetails';
 
 import preloadedState from './mock/preloadedState.mock';
 
