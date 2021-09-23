@@ -9,7 +9,7 @@ export async function loadCharacters() {
       const { data } = await axios(url);
 
       dispatch({
-        type: actionTypes.LOAD__CHARACTERS,
+        type: actionTypes.LOAD_CHARACTERS,
         data,
       });
     } catch (error) {
@@ -20,14 +20,23 @@ export async function loadCharacters() {
   };
 }
 
-export async function loadPlanet(url) {
+export function loadPlanet(url) {
   return async (dispatch) => {
     try {
       const { data } = await axios(url);
+      let planetResidents = await axios.all((data.residents
+        .map((residentUrl) => axios.get(residentUrl))));
+
+      planetResidents = planetResidents.map((response) => response.data);
+
+      const planetObj = {
+        ...data,
+        planetResidents,
+      };
 
       dispatch({
         type: actionTypes.LOAD_PLANET,
-        data,
+        planetObj,
       });
     } catch (error) {
       dispatch({
