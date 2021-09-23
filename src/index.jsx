@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  BrowserRouter, Route, Redirect, Switch,
+} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +14,12 @@ import preloadedState from './mock/preloadedState.mock';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore(preloadedState)}>
-      <Dashboard />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Dashboard} />
+          <Redirect path="dashboard" to="/" />
+        </Switch>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

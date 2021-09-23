@@ -1,11 +1,16 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import CharacterCard from '../CharacterCard/CharacterCard';
 
 export default function CharacterList({ characters }) {
   return (
     <ul>
-      {characters.map((character) => <CharacterCard character={character} key={character.name} />)}
+      {characters.map((character) => (
+        <Link to={`/details/${character.name}`}>
+          <CharacterCard character={character} key={character.name} />
+        </Link>
+      ))}
     </ul>
   );
 }
