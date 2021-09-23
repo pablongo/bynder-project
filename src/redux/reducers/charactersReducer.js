@@ -6,6 +6,7 @@ export default function charactersReducer(characters = [], action) {
     case actionTypes.LOAD__CHARACTERS:
 
       break;
+
     case actionTypes.API_ERROR:
 
       break;

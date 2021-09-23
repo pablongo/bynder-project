@@ -20,6 +20,19 @@ export async function loadCharacters() {
   };
 }
 
-export async function loaddCharacters() {
-  return '';
+export async function loadPlanet(url) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(url);
+
+      dispatch({
+        type: actionTypes.LOAD_PLANET,
+        data,
+      });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.API_ERROR,
+      });
+    }
+  };
 }

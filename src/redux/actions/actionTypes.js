@@ -1,5 +1,7 @@
 export default {
   LOAD__CHARACTERS: 'LOAD__CHARACTERS',
 
+  LOAD_PLANET: 'LOAD_PLANET',
+
   API_ERROR: 'API_ERROR',
 };
