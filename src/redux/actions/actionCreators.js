@@ -1,12 +1,10 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
-export async function loadCharacters() {
+export function loadCharacters(page) {
   return async (dispatch) => {
-    const url = process.env.REACT_APP_SWAPI;
-
     try {
-      const { data } = await axios(url);
+      const { data } = await axios(page);
 
       dispatch({
         type: actionTypes.LOAD_CHARACTERS,
@@ -24,8 +22,9 @@ export function loadPlanet(url) {
   return async (dispatch) => {
     try {
       const { data } = await axios(url);
-      let planetResidents = await axios.all((data.residents
-        .map((residentUrl) => axios.get(residentUrl))));
+      let planetResidents = await axios.all((data.residents.map(
+        (residentUrl) => axios.get(residentUrl),
+      )));
 
       planetResidents = planetResidents.map((response) => response.data);
 

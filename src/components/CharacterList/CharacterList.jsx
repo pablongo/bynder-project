@@ -6,11 +6,17 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 export default function CharacterList({ characters }) {
   return (
     <ul>
+      <button type="button">
+        Next Page
+      </button>
       {characters.map((character) => (
         <Link key={character.name} to={`/details/${character.name}`}>
           <CharacterCard character={character} />
         </Link>
       ))}
+      <button type="button">
+        Prev Page
+      </button>
     </ul>
   );
 }

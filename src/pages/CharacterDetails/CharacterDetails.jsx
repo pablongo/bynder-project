@@ -9,7 +9,7 @@ export default function CharacterDetails() {
   const dispatch = useDispatch();
 
   const planet = useSelector((store) => store.planet);
-  const characters = useSelector((store) => store.characters);
+  const characters = useSelector((store) => store.characters.results);
 
   const { character } = useParams();
 
