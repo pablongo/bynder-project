@@ -5,7 +5,6 @@ export function loadCharacters(page) {
   return async (dispatch) => {
     try {
       const { data } = await axios(page);
-
       dispatch({
         type: actionTypes.LOAD_CHARACTERS,
         data,
