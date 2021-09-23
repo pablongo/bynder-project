@@ -1,10 +1,10 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
-export function loadCharacters(page) {
+export function loadCharacters(url) {
   return async (dispatch) => {
     try {
-      const { data } = await axios(page);
+      const { data } = await axios(url);
       dispatch({
         type: actionTypes.LOAD_CHARACTERS,
         data,
