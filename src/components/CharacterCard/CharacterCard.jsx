@@ -1,5 +1,5 @@
 import React from 'react';
-import { Proptypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 export default function CharacterCard({ character }) {
   return (
@@ -15,9 +15,12 @@ export default function CharacterCard({ character }) {
 }
 
 CharacterCard.defaultProps = {
-  character: Proptypes.shape({}).isRequired,
+  character: PropTypes.shape({}).isRequired,
 };
 
 CharacterCard.propTypes = {
-  character: Proptypes.shape({}),
+  character: PropTypes.shape({
+    name: PropTypes.string,
+    birth_year: PropTypes.string,
+  }),
 };
