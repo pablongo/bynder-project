@@ -6,6 +6,8 @@ import configureStore from './redux/stores';
 
 import Dashboard from './pages/Dashboard/Dashboard';
 
+import preloadedState from './mock/preloadedState.mock';
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore(preloadedState)}>
