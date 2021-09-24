@@ -17,13 +17,14 @@ export function loadCharacters(url) {
     }
   };
 }
-export function loadSearchedCharacters(searchValue) {
+export function loadSearchedCharacters(searchTerm, filterBy) {
   return async (dispatch) => {
     try {
       let url = process.env.REACT_APP_SWAPI;
-      url += `people/?search=${searchValue}`;
+      url += `${filterBy}/?search=${searchTerm}`;
 
       const { data } = await axios(url);
+
       dispatch({
         type: actionTypes.LOAD_CHARACTERS,
         data,

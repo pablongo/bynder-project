@@ -11,17 +11,23 @@ export default function CharacterDetails() {
   const planet = useSelector((store) => store.planet);
   const characters = useSelector((store) => store.characters.results);
 
-  const { character } = useParams();
+  const { source, character } = useParams();
 
   const [shownCharacter, setShownCharacter] = useState({});
 
   useEffect(() => {
-    const foundCharacter = characters
-      .find((characterStored) => (characterStored.name === character));
+    let foundCharacter;
+    if (source === 'dashboard') {
+      foundCharacter = characters
+        .find((characterStored) => (characterStored.name === character));
+    } else {
+      foundCharacter = planet.planetResidents
+        .find((characterStored) => (characterStored.name === character));
+    }
 
     dispatch(loadPlanet(foundCharacter.homeworld));
     setShownCharacter(foundCharacter);
-  }, []);
+  }, [character]);
 
   return (
     <>
@@ -37,13 +43,17 @@ export default function CharacterDetails() {
         </section>
         <section>
           <h2>{planet.name}</h2>
+          {planet.planetResidents && (
           <ul>
-            {planet.planetResidents?.map((resident) => (
-              <li key={resident.name}>
-                <h3>{resident.name}</h3>
-              </li>
+            {planet.planetResidents.map((resident) => (
+              <Link to={`/details/planets/${resident.name}`}>
+                <li key={resident.name}>
+                  <h3>{resident.name}</h3>
+                </li>
+              </Link>
             ))}
           </ul>
+          )}
         </section>
       </article>
       <Link to="/">

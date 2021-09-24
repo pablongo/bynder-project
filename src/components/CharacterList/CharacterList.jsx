@@ -7,7 +7,7 @@ export default function CharacterList({ characters }) {
   return (
     <ul>
       {characters.map((character) => (
-        <Link key={character.name} to={`/details/${character.name}`}>
+        <Link key={character.name} to={`/details/dashboard/${character.name}`}>
           <CharacterCard character={character} />
         </Link>
       ))}

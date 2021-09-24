@@ -18,7 +18,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Dashboard} />
-          <Route path="/details/:character" component={CharacterDetails} />
+          <Route path="/details/:source/:character" component={CharacterDetails} />
           <Redirect path="dashboard" to="/" />
         </Switch>
       </BrowserRouter>
