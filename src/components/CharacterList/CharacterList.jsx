@@ -7,7 +7,7 @@ import './CharacterList.css';
 
 export default function CharacterList({ characters }) {
   return (
-    <ul className="character-list">
+    <ul data-testid="character-list" className="character-list">
       {characters.map((character) => (
         <Link key={character.name} to={`/details/dashboard/${character.name}`}>
           <CharacterCard character={character} />
