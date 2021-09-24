@@ -14,6 +14,7 @@ export default function PaginationButtons({ previous, next }) {
   return (
     <div className="pagination-container">
       <button
+        data-testid="prev-button"
         disabled={!previous}
         type="button"
         onClick={() => handlePaginationClick(previous)}
@@ -21,6 +22,7 @@ export default function PaginationButtons({ previous, next }) {
         Prev
       </button>
       <button
+        data-testid="next-button"
         disabled={!next}
         type="button"
         onClick={() => handlePaginationClick(next)}
