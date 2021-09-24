@@ -25,40 +25,45 @@ export default function SearchFilters() {
   }
 
   return (
-    <>
-      <form className="form">
-        <fieldset className="form-radios">
-          <label htmlFor="search_people">
-            <input
-              id="search_people"
-              type="radio"
-              name="filterBy"
-              value="people"
-              onChange={handleInputChange}
-            />
-            by character name
-          </label>
-          <label htmlFor="planet_resident">
-            <input
-              id="planet_resident"
-              type="radio"
-              name="filterBy"
-              value="planets"
-              onChange={handleInputChange}
-            />
-            by hometown planet
-          </label>
-        </fieldset>
+    <form className="form">
+      <fieldset className="form__radios radios">
+        <label className="radios__input" htmlFor="search_people">
+          <input
+            id="search_people"
+            type="radio"
+            name="filterBy"
+            value="people"
+            onChange={handleInputChange}
+          />
+          FIND CHARACTERS
+        </label>
+        <label className="radios__input" htmlFor="planet_resident">
+          <input
+            id="planet_resident"
+            type="radio"
+            name="filterBy"
+            value="planets"
+            onChange={handleInputChange}
+          />
+          FIND PLANETS
+        </label>
+      </fieldset>
+      <div className="input__container">
         <input
+          className="form__input"
           name="search_term"
           type="text"
           placeholder="Search..."
           onChange={handleInputChange}
         />
-        <button type="button" onClick={() => handleSearch(searchTerm, filterBy)}>
-          Search
+        <button
+          className="form__submit"
+          type="button"
+          onClick={() => handleSearch(searchTerm, filterBy)}
+        >
+          SEARCH
         </button>
-      </form>
-    </>
+      </div>
+    </form>
   );
 }

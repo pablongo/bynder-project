@@ -29,8 +29,8 @@ export default function Dashboard() {
       </section>
       <section className="dashboard-container__main main">
         <SearchFilters />
-        <PaginationButtons previous={previousPage} next={nextPage} />
         <CharacterList characters={charactersList} />
+        <PaginationButtons previous={previousPage} next={nextPage} />
       </section>
     </div>
   );
