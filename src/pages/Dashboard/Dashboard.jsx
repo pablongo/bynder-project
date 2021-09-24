@@ -14,9 +14,24 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <SearchFilters />
-      <PaginationButtons previous={previousPage} next={nextPage} />
-      <CharacterList characters={charactersList} />
+      <section className="dashboard-container__welcome welcome">
+        <article className="welcome__titles titles">
+          <span className="titles__date">WEDNESDAY 29th</span>
+          <h2 className="titles__up">THE RISE OF </h2>
+          <h2 className="titles__down">BYNDERS JEDI</h2>
+          <button
+            type="button"
+            className="titles__button"
+          >
+            PROVE JEDIS FORCE
+          </button>
+        </article>
+      </section>
+      <section className="dashboard-container__main main">
+        <SearchFilters />
+        <PaginationButtons previous={previousPage} next={nextPage} />
+        <CharacterList characters={charactersList} />
+      </section>
     </div>
   );
 }
