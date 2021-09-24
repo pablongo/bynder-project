@@ -3,9 +3,11 @@ import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import CharacterCard from '../CharacterCard/CharacterCard';
 
+import './CharacterList.css';
+
 export default function CharacterList({ characters }) {
   return (
-    <ul>
+    <ul className="character-list">
       {characters.map((character) => (
         <Link key={character.name} to={`/details/dashboard/${character.name}`}>
           <CharacterCard character={character} />

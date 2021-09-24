@@ -12,6 +12,8 @@ import CharacterDetails from './pages/CharacterDetails/CharacterDetails';
 
 import preloadedState from './mock/preloadedState.mock';
 
+import './index.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore(preloadedState)}>

@@ -1,0 +1,10 @@
+.character-card{
+    height: auto;
+    width: 250px;
+    color: white;
+    background-color: rgba(245, 245, 245, 0.541);
+    border-radius: 10px 10px 10px 10px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
