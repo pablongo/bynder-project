@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { loadSearchedCharacters } from '../../redux/actions/actionCreators';
 
+import './SearchFilters.css';
+
 export default function SearchFilters() {
   const dispatch = useDispatch();
 
@@ -24,15 +26,8 @@ export default function SearchFilters() {
 
   return (
     <>
-      <h1>Search filters</h1>
-      <form>
-        <input
-          name="search_term"
-          type="text"
-          placeholder="Search..."
-          onChange={handleInputChange}
-        />
-        <fieldset>
+      <form className="form">
+        <fieldset className="form-radios">
           <label htmlFor="search_people">
             <input
               id="search_people"
@@ -54,6 +49,12 @@ export default function SearchFilters() {
             by hometown planet
           </label>
         </fieldset>
+        <input
+          name="search_term"
+          type="text"
+          placeholder="Search..."
+          onChange={handleInputChange}
+        />
         <button type="button" onClick={() => handleSearch(searchTerm, filterBy)}>
           Search
         </button>

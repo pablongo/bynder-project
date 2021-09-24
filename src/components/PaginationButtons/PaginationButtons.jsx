@@ -12,7 +12,7 @@ export default function PaginationButtons({ previous, next }) {
   }
 
   return (
-    <>
+    <div className="pagination-container">
       <button
         disabled={!previous}
         type="button"
@@ -27,7 +27,7 @@ export default function PaginationButtons({ previous, next }) {
       >
         Next
       </button>
-    </>
+    </div>
   );
 }
 

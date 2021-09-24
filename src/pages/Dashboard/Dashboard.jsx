@@ -23,7 +23,7 @@ export default function Dashboard() {
             type="button"
             className="titles__button"
           >
-            PROVE JEDIS FORCE
+            THIS IS THE WAY
           </button>
         </article>
       </section>
