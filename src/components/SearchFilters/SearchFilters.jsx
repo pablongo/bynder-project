@@ -53,6 +53,7 @@ export default function SearchFilters() {
           className="form__input"
           name="search_term"
           type="text"
+          disabled={!filterBy}
           placeholder="Search..."
           onChange={handleInputChange}
         />
