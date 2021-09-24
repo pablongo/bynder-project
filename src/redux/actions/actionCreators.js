@@ -1,9 +1,28 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
 export function loadCharacters(url) {
   return async (dispatch) => {
     try {
+      const { data } = await axios(url);
+      dispatch({
+        type: actionTypes.LOAD_CHARACTERS,
+        data,
+      });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.API_ERROR,
+      });
+    }
+  };
+}
+export function loadSearchedCharacters(searchValue) {
+  return async (dispatch) => {
+    try {
+      let url = process.env.REACT_APP_SWAPI;
+      url += `people/?search=${searchValue}`;
+
       const { data } = await axios(url);
       dispatch({
         type: actionTypes.LOAD_CHARACTERS,
