@@ -3,6 +3,8 @@ import { render, screen } from '../../utils/test.utils';
 
 import PaginationButton from './PaginationButtons';
 
+jest.mock('../../redux/actions/actionCreators');
+
 describe('Given a PaginationButtons component', () => {
   describe('When is rendered', () => {
     beforeEach(() => {

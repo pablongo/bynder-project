@@ -7,11 +7,6 @@ export default function CharacterCard({ character }) {
   return (
     <li className="character-card">
       <h2>{character.name}</h2>
-      <span>
-        Birth year:
-        {' '}
-        {character.birth_year}
-      </span>
     </li>
   );
 }
