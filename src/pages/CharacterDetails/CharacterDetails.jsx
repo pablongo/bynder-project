@@ -22,11 +22,13 @@ export default function CharacterDetails() {
     if (source === 'dashboard') {
       foundCharacter = characters
         .find((characterStored) => (characterStored.name === character));
+      if (!foundCharacter.height) {
+        foundCharacter.homeworld = foundCharacter.url;
+      }
     } else {
       foundCharacter = planet.planetResidents
         .find((characterStored) => (characterStored.name === character));
     }
-
     dispatch(loadPlanet(foundCharacter.homeworld));
     setShownCharacter(foundCharacter);
   }, [character]);
