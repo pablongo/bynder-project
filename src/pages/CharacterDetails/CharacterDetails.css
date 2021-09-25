@@ -1,0 +1,63 @@
+.character-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
+    margin-left: 15vw;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.705);
+    gap: 20px;
+    justify-content: center;
+}
+
+.character-container__data{
+    display: flex;
+    flex-direction: column;
+}
+
+.data__title{
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.data__concrete{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.concrete__columns{
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+    font-size: 25px;
+}
+
+.data__planet{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.planet__title{
+    margin-bottom: 20px;
+}
+
+.planet__residents{
+    display: flex;
+    flex-wrap: wrap;
+    width: 65vh;
+    gap: 20px;
+}
+
+.residents__name{
+    color:white;
+}
+
+.back-button{
+    width: 200px;
+    background-color: white;
+    border: 1px solid transparent;
+    padding: 13px 5px;
+    cursor: pointer;
+}
+

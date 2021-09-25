@@ -12,13 +12,15 @@ import CharacterDetails from './pages/CharacterDetails/CharacterDetails';
 
 import preloadedState from './mock/preloadedState.mock';
 
+import './index.css';
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore(preloadedState)}>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Dashboard} />
-          <Route path="/details/:character" component={CharacterDetails} />
+          <Route path="/details/:source/:character" component={CharacterDetails} />
           <Redirect path="dashboard" to="/" />
         </Switch>
       </BrowserRouter>
@@ -27,7 +29,4 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

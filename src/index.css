@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: Impact,Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: url('./assests/background-image.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

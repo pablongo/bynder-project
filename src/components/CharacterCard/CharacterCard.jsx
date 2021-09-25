@@ -1,15 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+import './CharacterCard.css';
+
 export default function CharacterCard({ character }) {
   return (
-    <li>
+    <li className="character-card">
       <h2>{character.name}</h2>
-      <span>
-        Birth year:
-        {' '}
-        {character.birth_year}
-      </span>
     </li>
   );
 }
