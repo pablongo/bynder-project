@@ -10,15 +10,18 @@ import './CharacterDetails.css';
 export default function CharacterDetails() {
   const dispatch = useDispatch();
 
-  const planet = useSelector((store) => store.planet);
-  const characters = useSelector((store) => store.characters.results);
+  const [planet, characters] = useSelector(
+    // eslint-disable-next-line no-shadow
+    ({ planet, characters: { results } }) => [planet, results],
+  );
 
   const { source, character } = useParams();
 
   const [shownCharacter, setShownCharacter] = useState({});
 
+  let foundCharacter;
+
   useEffect(() => {
-    let foundCharacter;
     if (source === 'dashboard') {
       foundCharacter = characters
         .find((characterStored) => (characterStored.name === character));
@@ -36,22 +39,25 @@ export default function CharacterDetails() {
   return (
     <>
       <article data-testid="details-article" className="character-container">
-        <h1>Cosa</h1>
-        <section className="character-container__data data">
-          <h1 className="data__title">{shownCharacter?.name}</h1>
-          <section className="data__concrete concrete">
-            <div className="concrete__columns">
-              <span>{`HEIGHT: ${shownCharacter?.height}`}</span>
-              <span>{`MASS: ${shownCharacter?.mass}`}</span>
-              <span>{`BIRTH YEAR: ${shownCharacter?.birth_year}`}</span>
-            </div>
-            <div className="concrete__columns">
-              <span>{`HAIR: ${shownCharacter?.hair_color}`}</span>
-              <span>{`SKIN: ${shownCharacter?.skin_color}`}</span>
-              <span>{`EYES: ${shownCharacter?.eye_color}`}</span>
-            </div>
+        {shownCharacter?.height && (
+        <>
+          <section className="character-container__data data">
+            <h1 className="data__title">{shownCharacter?.name}</h1>
+            <section className="data__concrete concrete">
+              <div className="concrete__columns">
+                <span>{`HEIGHT: ${shownCharacter?.height}`}</span>
+                <span>{`MASS: ${shownCharacter?.mass}`}</span>
+                <span>{`BIRTH YEAR: ${shownCharacter?.birth_year}`}</span>
+              </div>
+              <div className="concrete__columns">
+                <span>{`HAIR: ${shownCharacter?.hair_color}`}</span>
+                <span>{`SKIN: ${shownCharacter?.skin_color}`}</span>
+                <span>{`EYES: ${shownCharacter?.eye_color}`}</span>
+              </div>
+            </section>
           </section>
-        </section>
+        </>
+        )}
         <section className="data__planet planet">
           <h2 className="planet__title">{planet.name}</h2>
           {planet.planetResidents && (
