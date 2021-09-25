@@ -4,6 +4,7 @@ import { render, screen, fireEvent } from '../../utils/test.utils';
 import PaginationButton from './PaginationButtons';
 
 import { loadCharacters } from '../../redux/actions/actionCreators';
+import actionTypes from '../../redux/actions/actionTypes';
 
 jest.mock('../../redux/actions/actionCreators');
 
@@ -22,7 +23,10 @@ describe('Given a PaginationButtons component', () => {
       test('Then loadCharacters should have been caled with previous', () => {
         const prevButton = screen.getByTestId('prev-button');
 
-        loadCharacters.mockReturnValue({ type: 'string' });
+        loadCharacters.mockReturnValue({
+          type: actionTypes.LOAD_CHARACTERS,
+          data: [],
+        });
         fireEvent.click(prevButton);
 
         expect(loadCharacters).toHaveBeenCalledWith('previous');
