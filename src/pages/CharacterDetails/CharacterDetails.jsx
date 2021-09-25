@@ -10,8 +10,7 @@ import './CharacterDetails.css';
 export default function CharacterDetails() {
   const dispatch = useDispatch();
 
-  const [planet, characters] = useSelector(
-    // eslint-disable-next-line no-shadow
+  const [planetData, characters] = useSelector(
     ({ planet, characters: { results } }) => [planet, results],
   );
 
@@ -29,7 +28,7 @@ export default function CharacterDetails() {
         foundCharacter.homeworld = foundCharacter.url;
       }
     } else {
-      foundCharacter = planet.planetResidents
+      foundCharacter = planetData.planetResidents
         .find((characterStored) => (characterStored.name === character));
     }
     dispatch(loadPlanet(foundCharacter.homeworld));
@@ -59,10 +58,10 @@ export default function CharacterDetails() {
         </>
         )}
         <section className="data__planet planet">
-          <h2 className="planet__title">{planet.name}</h2>
-          {planet.planetResidents && (
+          <h2 className="planet__title">{planetData.name}</h2>
+          {planetData.planetResidents && (
             <ul className="planet__residents residents">
-              {planet.planetResidents.map((resident) => (
+              {planetData.planetResidents.map((resident) => (
                 <Link key={resident.name} to={`/details/planets/${resident.name}`}>
                   <li className="residents__name">
                     <h3>{resident.name}</h3>

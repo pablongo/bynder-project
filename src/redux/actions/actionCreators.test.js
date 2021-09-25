@@ -87,7 +87,7 @@ describe('Given a loadPlanet function', () => {
     describe('And rejectes', () => {
       test('Then should call dispatch with API_ERROR', async () => {
         const dispatch = jest.fn();
-        axios.all.mockRejectedValue({ data: [] });
+        axios.all.mockRejectedValue({});
 
         await loadPlanet()(dispatch);
 

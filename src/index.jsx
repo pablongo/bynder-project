@@ -1,10 +1,11 @@
+/* istanbul ignore file */
+
 import React from 'react';
 import {
   BrowserRouter, Route, Redirect, Switch,
 } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/stores';
 
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -28,5 +29,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
-
-reportWebVitals();
