@@ -63,8 +63,8 @@ export default function CharacterDetails() {
           {planet.planetResidents && (
             <ul className="planet__residents residents">
               {planet.planetResidents.map((resident) => (
-                <Link to={`/details/planets/${resident.name}`}>
-                  <li className="residents__name" key={resident.name}>
+                <Link key={resident.name} to={`/details/planets/${resident.name}`}>
+                  <li className="residents__name">
                     <h3>{resident.name}</h3>
                   </li>
                 </Link>
