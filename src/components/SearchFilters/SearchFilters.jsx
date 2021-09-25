@@ -25,7 +25,7 @@ export default function SearchFilters() {
   }
 
   return (
-    <form className="form">
+    <form data-testid="search-form" className="form">
       <fieldset className="form__radios radios">
         <label className="radios__input" htmlFor="search_people">
           <input
@@ -58,6 +58,7 @@ export default function SearchFilters() {
           onChange={handleInputChange}
         />
         <button
+          data-testid="search-button"
           className="form__submit"
           type="button"
           onClick={() => handleSearch(searchTerm, filterBy)}

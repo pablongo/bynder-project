@@ -13,7 +13,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="dashboard-container">
+    <div data-testid="dashboard" className="dashboard-container">
       <section className="dashboard-container__welcome welcome">
         <article className="welcome__titles titles">
           <span className="titles__date">WEDNESDAY 29th</span>

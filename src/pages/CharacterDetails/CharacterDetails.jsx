@@ -35,7 +35,8 @@ export default function CharacterDetails() {
 
   return (
     <>
-      <article className="character-container">
+      <article data-testid="details-article" className="character-container">
+        <h1>Cosa</h1>
         <section className="character-container__data data">
           <h1 className="data__title">{shownCharacter?.name}</h1>
           <section className="data__concrete concrete">
