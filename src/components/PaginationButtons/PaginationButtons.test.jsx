@@ -20,26 +20,59 @@ describe('Given a PaginationButtons component', () => {
       expect(screen.getByText(/Next/i)).toBeInTheDocument();
     });
     describe('And prev-button is clicked', () => {
-      test('Then loadCharacters should have been caled with previous', () => {
-        const prevButton = screen.getByTestId('prev-button');
+      describe('And Api sends data', () => {
+        test('Then loadCharacters should have been called with previous', () => {
+          const prevButton = screen.getByTestId('prev-button');
 
-        loadCharacters.mockReturnValue({
-          type: actionTypes.LOAD_CHARACTERS,
-          data: [],
+          loadCharacters.mockReturnValue({
+            type: actionTypes.LOAD_CHARACTERS,
+            data: [],
+          });
+          fireEvent.click(prevButton);
+
+          expect(loadCharacters).toHaveBeenCalledWith('previous');
         });
-        fireEvent.click(prevButton);
+      });
+      describe('And Api sends error', () => {
+        test('Then loadCharacters should have been called with previous', () => {
+          const prevButton = screen.getByTestId('prev-button');
 
-        expect(loadCharacters).toHaveBeenCalledWith('previous');
+          loadCharacters.mockReturnValue({
+            type: actionTypes.API_ERROR,
+            data: [],
+          });
+          fireEvent.click(prevButton);
+
+          expect(loadCharacters).toHaveBeenCalledWith('previous');
+        });
       });
     });
     describe('And next-button is clicked', () => {
-      test('Then loadCharacters should have been caled with previous', () => {
-        const nextButton = screen.getByTestId('next-button');
+      describe('And API sends data', () => {
+        test('Then loadCharacters should have been called with next', () => {
+          const nextButton = screen.getByTestId('next-button');
 
-        loadCharacters.mockReturnValue({ type: 'string' });
-        fireEvent.click(nextButton);
+          loadCharacters.mockReturnValue({
+            type: actionTypes.LOAD_CHARACTERS,
+            data: [],
+          });
+          fireEvent.click(nextButton);
 
-        expect(loadCharacters).toHaveBeenCalledWith('next');
+          expect(loadCharacters).toHaveBeenCalledWith('next');
+        });
+      });
+      describe('And API sends error', () => {
+        test('Then loadCharacters should have been called with next', () => {
+          const nextButton = screen.getByTestId('next-button');
+
+          loadCharacters.mockReturnValue({
+            type: actionTypes.API_ERROR,
+            data: [],
+          });
+          fireEvent.click(nextButton);
+
+          expect(loadCharacters).toHaveBeenCalledWith('next');
+        });
       });
     });
   });
