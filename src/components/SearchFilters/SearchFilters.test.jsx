@@ -17,9 +17,11 @@ describe('Given a SearchFilters component', () => {
     });
     describe('And search-button is clicked', () => {
       test('Then loadSearchedCharacters should have been called', () => {
+        const textInput = screen.getByTestId('text-input');
         const searchButton = screen.getByTestId('search-button');
 
         loadSearchedCharacters.mockReturnValue({ type: 'action' });
+        fireEvent.change(textInput, { target: { value: 'luke' } });
         fireEvent.click(searchButton);
 
         expect(loadSearchedCharacters).toHaveBeenCalled();

@@ -50,6 +50,7 @@ export default function SearchFilters() {
       </fieldset>
       <div className="input__container">
         <input
+          data-testid="text-input"
           className="form__input"
           name="search_term"
           type="text"
