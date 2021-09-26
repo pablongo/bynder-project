@@ -5,6 +5,7 @@
     list-style-type: none;
     box-sizing: border-box;
     font-family: Impact,Arial, Helvetica, sans-serif;
+    cursor: url('./assests/falcon.png'), auto;
 }
 
 body{
