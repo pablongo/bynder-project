@@ -13,7 +13,6 @@
 }
 
 .form__input{
-    font-size: 30px;
     text-align: center;
     width: 30vw;
     height: 45px;
@@ -45,10 +44,19 @@
     background-color: white;
     border: 1px solid transparent;
     padding: 13px 5px;
-    cursor: pointer;
 }
 
 .input__container{
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 480px){
+    .form{
+        zoom: 80%;
+    }
+
+    .form__radios{
+        zoom: 80%;
+    }
 }

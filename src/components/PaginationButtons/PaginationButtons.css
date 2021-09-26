@@ -8,6 +8,15 @@
     background-color: white;
     border: 1px solid transparent;
     padding: 13px 5px;
-    cursor: pointer;
     margin: 10px;
+}
+
+@media screen and (max-width: 480px){
+    .pagination-container{
+        zoom: 80%;
+    }
+    
+    .pagination-container__button{
+        zoom: 80%;
+    }
 }

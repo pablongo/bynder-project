@@ -1,1 +1,0 @@
-# bynder-project

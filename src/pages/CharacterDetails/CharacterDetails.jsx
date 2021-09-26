@@ -10,15 +10,17 @@ import './CharacterDetails.css';
 export default function CharacterDetails() {
   const dispatch = useDispatch();
 
-  const planet = useSelector((store) => store.planet);
-  const characters = useSelector((store) => store.characters.results);
+  const [planetData, characters] = useSelector(
+    ({ planet, characters: { results } }) => [planet, results],
+  );
 
   const { source, character } = useParams();
 
   const [shownCharacter, setShownCharacter] = useState({});
 
+  let foundCharacter;
+
   useEffect(() => {
-    let foundCharacter;
     if (source === 'dashboard') {
       foundCharacter = characters
         .find((characterStored) => (characterStored.name === character));
@@ -26,7 +28,7 @@ export default function CharacterDetails() {
         foundCharacter.homeworld = foundCharacter.url;
       }
     } else {
-      foundCharacter = planet.planetResidents
+      foundCharacter = planetData.planetResidents
         .find((characterStored) => (characterStored.name === character));
     }
     dispatch(loadPlanet(foundCharacter.homeworld));
@@ -36,28 +38,32 @@ export default function CharacterDetails() {
   return (
     <>
       <article className="character-container">
-        <section className="character-container__data data">
-          <h1 className="data__title">{shownCharacter?.name}</h1>
-          <section className="data__concrete concrete">
-            <div className="concrete__columns">
-              <span>{`HEIGHT: ${shownCharacter?.height}`}</span>
-              <span>{`MASS: ${shownCharacter?.mass}`}</span>
-              <span>{`BIRTH YEAR: ${shownCharacter?.birth_year}`}</span>
-            </div>
-            <div className="concrete__columns">
-              <span>{`HAIR: ${shownCharacter?.hair_color}`}</span>
-              <span>{`SKIN: ${shownCharacter?.skin_color}`}</span>
-              <span>{`EYES: ${shownCharacter?.eye_color}`}</span>
-            </div>
+        {shownCharacter?.height && (
+        <>
+          <section data-testid="character-details" className="character-container__data data">
+            <h1 className="data__title">{shownCharacter?.name}</h1>
+            <section className="data__concrete concrete">
+              <div className="concrete__columns">
+                <span>{`HEIGHT: ${shownCharacter?.height}`}</span>
+                <span>{`MASS: ${shownCharacter?.mass}`}</span>
+                <span>{`BIRTH YEAR: ${shownCharacter?.birth_year}`}</span>
+              </div>
+              <div className="concrete__columns">
+                <span>{`HAIR: ${shownCharacter?.hair_color}`}</span>
+                <span>{`SKIN: ${shownCharacter?.skin_color}`}</span>
+                <span>{`EYES: ${shownCharacter?.eye_color}`}</span>
+              </div>
+            </section>
           </section>
-        </section>
+        </>
+        )}
         <section className="data__planet planet">
-          <h2 className="planet__title">{planet.name}</h2>
-          {planet.planetResidents && (
+          <h2 className="planet__title">{planetData.name}</h2>
+          {planetData.planetResidents && (
             <ul className="planet__residents residents">
-              {planet.planetResidents.map((resident) => (
-                <Link to={`/details/planets/${resident.name}`}>
-                  <li className="residents__name" key={resident.name}>
+              {planetData.planetResidents.map((resident) => (
+                <Link key={resident.name} to={`/details/planets/${resident.name}`}>
+                  <li className="residents__name">
                     <h3>{resident.name}</h3>
                   </li>
                 </Link>
