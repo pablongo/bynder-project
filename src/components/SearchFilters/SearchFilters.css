@@ -50,3 +50,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 480px){
+    .form{
+        zoom: 80%;
+    }
+
+    .form__radios{
+        zoom: 80%;
+    }
+}

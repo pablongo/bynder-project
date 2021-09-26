@@ -47,3 +47,21 @@ html{
     align-items: center;
     gap: 1rem;
 }
+
+@media screen and (max-width: 760px){
+    .welcome__titles{
+        zoom: 80%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .welcome__titles{
+        zoom: 60%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .welcome__titles{
+        zoom: 40%;
+    }
+}
