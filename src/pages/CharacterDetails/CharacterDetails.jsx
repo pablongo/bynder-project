@@ -37,10 +37,10 @@ export default function CharacterDetails() {
 
   return (
     <>
-      <article data-testid="details-article" className="character-container">
+      <article className="character-container">
         {shownCharacter?.height && (
         <>
-          <section className="character-container__data data">
+          <section data-testid="character-details" className="character-container__data data">
             <h1 className="data__title">{shownCharacter?.name}</h1>
             <section className="data__concrete concrete">
               <div className="concrete__columns">

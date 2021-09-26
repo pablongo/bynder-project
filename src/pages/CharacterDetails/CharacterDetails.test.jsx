@@ -13,12 +13,36 @@ jest.mock('react-router', () => ({
 
 describe('Given a CharacterDetails component', () => {
   describe('When it renders', () => {
-    beforeEach(() => {
-      useParams.mockReturnValue({ source: 'dashboard', character: '' });
-      render(<CharacterDetails />, { preloadedState });
+    describe('And source is dashboard', () => {
+      describe('And foundCharacter is a character', () => {
+        beforeEach(() => {
+          useParams.mockReturnValue({ source: 'dashboard', character: 'Luke Skywalker' });
+          render(<CharacterDetails />, { preloadedState });
+        });
+        test('Then character-details should be in the document', () => {
+          expect(screen.getByTestId('character-details')).toBeInTheDocument();
+        });
+      });
+      describe('And foundCharacter is a planet', () => {
+        beforeEach(() => {
+          useParams.mockReturnValue({ source: 'dashboard', character: 'Tatooine' });
+          render(<CharacterDetails />, { preloadedState });
+        });
+        test('Then character-details should NOT be in the document', () => {
+          expect(screen.queryByTestId('character-details')).toBeNull();
+        });
+      });
     });
-    test('Then details-article should be in the document', () => {
-
+    describe('And source is planet', () => {
+      describe('And foundCharacter is a character', () => {
+        beforeEach(() => {
+          useParams.mockReturnValue({ source: 'planet', character: 'Luke Skywalker' });
+          render(<CharacterDetails />, { preloadedState });
+        });
+        test('Then character-details should be in the document', () => {
+          expect(screen.getByTestId('character-details')).toBeInTheDocument();
+        });
+      });
     });
   });
 });

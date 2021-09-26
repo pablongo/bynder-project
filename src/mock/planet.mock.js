@@ -30,5 +30,8 @@ export default {
   created: '2014-12-09T13:50:49.641000Z',
   edited: '2014-12-20T20:58:18.411000Z',
   url: 'https://swapi.dev/api/planets/1/',
-  planetResidents: [],
+  planetResidents: [{
+    name: 'Luke Skywalker',
+    height: '180',
+  }],
 };
