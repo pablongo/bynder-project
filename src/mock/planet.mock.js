@@ -33,5 +33,6 @@ export default {
   planetResidents: [{
     name: 'Luke Skywalker',
     height: '180',
+    homeworld: 'https://swapi.dev/api/planets/1/',
   }],
 };

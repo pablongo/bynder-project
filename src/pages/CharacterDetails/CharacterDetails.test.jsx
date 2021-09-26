@@ -1,10 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import { render, screen, fireEvent } from '../../utils/test.utils';
+import { render, screen } from '../../utils/test.utils';
+
+import { loadPlanet } from '../../redux/actions/actionCreators';
+import actionTypes from '../../redux/actions/actionTypes';
 
 import CharacterDetails from './CharacterDetails';
 
 import preloadedState from '../../mock/preloadedState.mock';
+
+jest.mock('../../redux/actions/actionCreators');
 
 jest.mock('react-router', () => ({
   ...jest.requireActual('react-router'),
@@ -12,6 +17,12 @@ jest.mock('react-router', () => ({
 }));
 
 describe('Given a CharacterDetails component', () => {
+  beforeEach(() => {
+    loadPlanet.mockReturnValue({
+      type: actionTypes.LOAD_PLANET,
+      planetObj: {},
+    });
+  });
   describe('When it renders', () => {
     describe('And source is dashboard', () => {
       describe('And foundCharacter is a character', () => {
