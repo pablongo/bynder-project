@@ -5,7 +5,7 @@ This project retrieves data from [Swapi](https://swapi.dev/documentation).
 ## You can find in the app:
 * BEM
 * Semantic HTML
-* Unit and component testing (95+ coverage)
+* Unit and component testing (96+ coverage)
 * CSS (I could have used SASS too)
 * Redux to handle local state
 * Full responsive styles
